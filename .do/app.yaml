@@ -1,0 +1,52 @@
+name: neetautopicker
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: Slum-Dev/neetautopicker
+    branch: main
+  run_command: npm start
+  build_command: npm run build:do
+  environment_slug: node-js
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 3000
+  health_check:
+    http_path: /
+  envs:
+  - key: VITE_GAS_URL
+    scope: RUN_AND_BUILD_TIME
+    type: SECRET
+  - key: VITE_APP_NAME
+    scope: RUN_AND_BUILD_TIME
+    value: "NEET Auto Picker"
+  - key: VITE_APP_VERSION
+    scope: RUN_AND_BUILD_TIME
+    value: "1.0.0"
+  - key: VITE_NODE_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: "production"
+  - key: VITE_DEBUG_MODE
+    scope: RUN_AND_BUILD_TIME
+    value: "false"
+  - key: VITE_LOG_LEVEL
+    scope: RUN_AND_BUILD_TIME
+    value: "error"
+  - key: VITE_API_TIMEOUT
+    scope: RUN_AND_BUILD_TIME
+    value: "30000"
+  - key: VITE_REQUEST_RETRY_COUNT
+    scope: RUN_AND_BUILD_TIME
+    value: "3"
+  - key: VITE_ENABLE_DISCORD_EXPORT
+    scope: RUN_AND_BUILD_TIME
+    value: "true"
+  - key: VITE_ENABLE_REROLL_SYSTEM
+    scope: RUN_AND_BUILD_TIME
+    value: "true"
+  - key: VITE_ENABLE_SUB_ACCOUNT_FILTER
+    scope: RUN_AND_BUILD_TIME
+    value: "true"
+  - key: VITE_ENABLE_TIME_FILTER
+    scope: RUN_AND_BUILD_TIME
+    value: "true"
