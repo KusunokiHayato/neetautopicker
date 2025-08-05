@@ -25,7 +25,14 @@
 ```yaml
 Build Command: npm run build:do
 Run Command: npm start
+Environment: Node.js 18+
+Port: 3000
 ```
+
+**プロダクション対応:**
+- `serve`パッケージによる高性能静的ファイル配信
+- SPA対応のルーティング設定
+- 適切なキャッシュヘッダー設定
 
 ### 4. 環境変数設定
 
