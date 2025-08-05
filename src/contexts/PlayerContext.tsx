@@ -183,7 +183,7 @@ export const PlayerProvider: React.FC<PlayerProviderProps> = ({ children }) => {
 
   const loadPlayersFromGoogleSheets = async () => {
     if (!isGASConfigured()) {
-      setError('Google Sheets連携が設定されていません。環境変数 VITE_GAS_URL を設定してください。');
+      setError('Google Sheets連携が設定されていません。「Google Sheets連携」タブから設定を行ってください。');
       return;
     }
 

@@ -1,7 +1,11 @@
 import type { Player } from '../types/lol';
 
 // Google Apps Script Web AppのURL（デプロイ後に設定）
-const GAS_WEB_APP_URL = import.meta.env.VITE_GAS_URL || 'YOUR_GAS_WEB_APP_URL_HERE';
+const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_ID/exec';
+const GAS_WEB_APP_URL = import.meta.env.VITE_GAS_URL || DEFAULT_GAS_URL;
+
+// 開発時の警告表示
+const isDefaultUrl = GAS_WEB_APP_URL === DEFAULT_GAS_URL;
 
 export interface GoogleSheetsResponse {
   players: Player[];
@@ -18,6 +22,11 @@ export interface ApiError {
  * Google Sheetsからプレイヤーデータを取得
  */
 export const fetchPlayersFromGoogleSheets = async (): Promise<GoogleSheetsResponse> => {
+  if (isDefaultUrl) {
+    console.warn('Google Apps Script URLが設定されていません。Google Sheetsとの連携には設定が必要です。');
+    throw new Error('Google Apps Script URLが設定されていません。GoogleSheetsControlから設定を行ってください。');
+  }
+
   try {
     const url = `${GAS_WEB_APP_URL}?action=getPlayers&timestamp=${Date.now()}`;
     
@@ -63,6 +72,10 @@ export const fetchPlayersFromGoogleSheets = async (): Promise<GoogleSheetsRespon
  * GAS APIのヘルスチェック
  */
 export const checkGASHealth = async (): Promise<{ status: string; timestamp: string }> => {
+  if (isDefaultUrl) {
+    throw new Error('Google Apps Script URLが設定されていません。GoogleSheetsControlから設定を行ってください。');
+  }
+
   try {
     const url = `${GAS_WEB_APP_URL}?action=health&timestamp=${Date.now()}`;
     
@@ -89,7 +102,7 @@ export const checkGASHealth = async (): Promise<{ status: string; timestamp: str
  * 設定チェック：GAS URLが設定されているかどうか
  */
 export const isGASConfigured = (): boolean => {
-  return GAS_WEB_APP_URL !== 'YOUR_GAS_WEB_APP_URL_HERE' && GAS_WEB_APP_URL.length > 0;
+  return !isDefaultUrl && GAS_WEB_APP_URL.length > 0;
 };
 
 /**

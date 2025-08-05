@@ -16,7 +16,7 @@ services:
   envs:
   - key: VITE_GAS_URL
     scope: RUN_AND_BUILD_TIME
-    type: SECRET
+    value: "https://script.google.com/macros/s/AKfycbwaigZPIuIuWhxety93S8skC43CkiNlkauCScQVes-JzMK0JcLlfHpWjzCHPOPasNOp/exec"
   - key: VITE_APP_NAME
     scope: RUN_AND_BUILD_TIME
     value: "NEET Auto Picker"
