@@ -1,0 +1,1417 @@
+/* League of Legends Team Builder Styles */
+
+:root {
+  --primary-color: #0f2027;
+  --secondary-color: #203a43;
+  --accent-color: #2c5364;
+  --gold-color: #c89b3c;
+  --text-light: #f0e6d2;
+  --text-dark: #3c3c41;
+  --success-color: #0a9e4e;
+  --danger-color: #c41e3a;
+  --warning-color: #f0ad4e;
+  --border-radius: 8px;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+.app {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  color: var(--gold-color);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Player Form Styles */
+.player-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.player-form h2 {
+  color: var(--gold-color);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.form-group select {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group select option {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 5px;
+}
+
+.form-group input::placeholder {
+  color: rgba(240, 230, 210, 0.6);
+}
+
+.lane-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.lane-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.lane-checkbox:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lane-checkbox input {
+  width: auto;
+}
+
+button {
+  background: var(--gold-color);
+  color: var(--text-dark);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #e4c15e;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn-remove {
+  background: var(--danger-color);
+  color: var(--text-light);
+}
+
+.btn-remove:hover {
+  background: #d73027;
+}
+
+.btn-activity {
+  background: var(--success-color);
+  color: var(--text-light);
+  margin-right: 10px;
+}
+
+.btn-activity:hover {
+  background: #0fa85f;
+}
+
+.btn-clear {
+  background: var(--warning-color);
+  color: var(--text-dark);
+}
+
+.btn-clear:hover {
+  background: #ec971f;
+}
+
+/* Player List Styles */
+.player-list {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.list-header h2 {
+  color: var(--gold-color);
+  margin: 0;
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.player-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--gold-color);
+  transition: transform 0.3s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.player-header h3 {
+  margin: 0;
+  color: var(--text-light);
+}
+
+.rank {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.rank.iron { background: #4a3c28; }
+.rank.bronze { background: #cd7f32; }
+.rank.silver { background: #c0c0c0; color: var(--text-dark); }
+.rank.gold { background: var(--gold-color); color: var(--text-dark); }
+.rank.platinum { background: #0eb7da; }
+.rank.diamond { background: #b9f2ff; color: var(--text-dark); }
+.rank.master { background: #9d4edd; }
+.rank.grandmaster { background: #ff6b6b; }
+.rank.challenger { background: #f72585; }
+.rank.unranked { background: #6c757d; }
+
+.player-lanes {
+  margin-bottom: 10px;
+}
+
+.lanes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.lane-tag {
+  background: var(--accent-color);
+  color: var(--text-light);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.player-times {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.player-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.player-actions button {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+/* Team Builder Styles */
+.team-builder {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+}
+
+.team-builder h2 {
+  color: var(--gold-color);
+  margin-bottom: 20px;
+}
+
+.global-filters {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+.time-filter-section h4 {
+  color: var(--gold-color);
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.time-filter-options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.radio-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.radio-option input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+
+.minutes-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.minutes-input label {
+  font-weight: bold;
+  color: var(--text-light);
+}
+
+.minutes-input input {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-light);
+  text-align: center;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.filter-row label {
+  min-width: 200px;
+  font-weight: bold;
+}
+
+.filter-row input,
+.filter-row select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.filter-row select {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.filter-row select option {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 5px;
+}
+
+.filters-grid {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.lane-filter {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  flex: 1;
+  min-width: 200px;
+  max-width: calc((100% - 60px) / 5); /* 5つのフィルターを均等分割、gapを考慮 */
+}
+
+.lane-filter h4 {
+  color: var(--gold-color);
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.team-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.btn-generate {
+  background: var(--success-color);
+  color: var(--text-light);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+}
+
+.btn-generate:hover {
+  background: #0fa85f;
+}
+
+/* Team Display Styles */
+.team-display {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+}
+
+.team-display h3 {
+  color: var(--gold-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.team-stats {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+}
+
+.team-composition {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.lane-slot {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  max-width: 250px;
+  flex-shrink: 0;
+}
+
+.lane-slot.filled {
+  border-color: var(--success-color);
+  background: rgba(10, 158, 78, 0.2);
+}
+
+.lane-slot.empty {
+  border-color: var(--danger-color);
+  background: rgba(196, 30, 58, 0.2);
+}
+
+.lane-name {
+  font-weight: bold;
+  color: var(--gold-color);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.player-info {
+  color: var(--text-light);
+}
+
+.player-slot-container {
+  position: relative;
+  width: 100%;
+}
+
+.single-lane-reroll-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.single-lane-reroll-btn:hover {
+  background: linear-gradient(135deg, #f57c00, #e65100);
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 4px 8px rgba(255, 152, 0, 0.4);
+}
+
+.single-lane-reroll-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* プライマリ表示項目 */
+.discord-name-primary {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7289da;
+  margin-bottom: 5px;
+}
+
+.lol-id {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.rank-display {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.solo-rank {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--gold-color);
+  background: rgba(200, 155, 60, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex: 1;
+  text-align: center;
+}
+
+.flex-rank {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--success-color);
+  background: rgba(10, 158, 78, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex: 1;
+  text-align: center;
+}
+
+/* アンランクプレイヤー用スタイル */
+.solo-rank.unranked,
+.flex-rank.unranked {
+  color: #6c757d;
+  background: rgba(108, 117, 125, 0.2);
+  opacity: 0.8;
+}
+
+/* セカンダリ表示項目 */
+.secondary-info {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.player-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.player-rank {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.player-rank-flex {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  color: var(--gold-color);
+}
+
+.discord-name {
+  font-size: 0.8rem;
+  color: #7289da;
+  opacity: 0.9;
+  margin-bottom: 3px;
+}
+
+.player-level {
+  font-size: 0.8rem;
+  color: var(--gold-color);
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.player-comment {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  opacity: 0.6;
+  font-style: italic;
+  margin-top: 3px;
+  max-width: 180px;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+.empty-slot {
+  color: var(--text-light);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.available-players {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.available-players h4 {
+  color: var(--gold-color);
+  margin: 0 0 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .lane-filter {
+    max-width: calc((100% - 45px) / 4); /* 4つずつ表示 */
+  }
+}
+
+@media (max-width: 992px) {
+  .lane-filter {
+    max-width: calc((100% - 30px) / 3); /* 3つずつ表示 */
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 5px;
+  }
+  
+  .app-header h1 {
+    font-size: 2rem;
+  }
+  
+  .time-filter-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filters-grid {
+    gap: 10px;
+    flex-direction: column;
+  }
+  
+  .lane-filter {
+    flex: none;
+    min-width: auto;
+    max-width: none;
+    padding: 10px;
+  }
+  
+  .team-composition {
+    gap: 10px;
+  }
+  
+  .lane-slot {
+    min-width: 160px;
+    max-width: 200px;
+    padding: 10px;
+  }
+  
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-row label {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-grid {
+    gap: 8px;
+  }
+  
+  .lane-filter {
+    padding: 8px;
+  }
+  
+  .lane-filter h4 {
+    font-size: 1rem;
+  }
+}
+
+/* Google Sheets Control Styles */
+.google-sheets-control {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(52, 168, 83, 0.1), rgba(66, 133, 244, 0.1));
+  border: 1px solid rgba(52, 168, 83, 0.3);
+  border-radius: var(--border-radius);
+}
+
+.google-sheets-control h3 {
+  color: #34a853;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.google-sheets-control h3::before {
+  content: "📊";
+  font-size: 1.2rem;
+}
+
+.sheets-status {
+  margin-bottom: 15px;
+}
+
+.status-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.status-indicator {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-indicator.configured {
+  background: rgba(52, 168, 83, 0.2);
+  color: #34a853;
+}
+
+.status-indicator.not-configured {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.player-count, .last-updated {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.error-icon {
+  font-size: 1.1rem;
+}
+
+.error-text {
+  font-size: 0.9rem;
+  color: #f44336;
+}
+
+.sheets-actions {
+  margin-bottom: 20px;
+}
+
+.load-button {
+  background: linear-gradient(135deg, #34a853, #2d8f44);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.load-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2d8f44, #26783a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
+}
+
+.load-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.load-button.loading .loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.setup-instructions {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.setup-instructions h4 {
+  color: var(--gold-color);
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.setup-instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.setup-instructions li {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.setup-options {
+  margin-bottom: 15px;
+}
+
+.setup-helper-button {
+  background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.setup-helper-button:hover {
+  background: linear-gradient(135deg, #7b1fa2, #6a1b9a);
+  transform: translateY(-2px);
+}
+
+.technical-info {
+  margin-top: 15px;
+}
+
+.technical-info details {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.technical-info summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gold-color);
+}
+
+.tech-details {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-details p {
+  margin: 4px 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Mobile Responsiveness for Google Sheets Control */
+@media (max-width: 768px) {
+  .status-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .load-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .setup-instructions ol {
+    padding-left: 16px;
+  }
+}
+
+/* GAS Setup Helper Styles */
+.gas-setup-helper {
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.1), rgba(52, 168, 83, 0.1));
+  border: 1px solid rgba(66, 133, 244, 0.3);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.gas-setup-helper h3 {
+  color: #4285f4;
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+}
+
+.setup-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  opacity: 1;
+  border-color: rgba(66, 133, 244, 0.4);
+  background: rgba(66, 133, 244, 0.05);
+}
+
+.step h4 {
+  color: var(--gold-color);
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.url-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.url-input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.extracted-id {
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(52, 168, 83, 0.2);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.extracted-id code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Consolas', monospace;
+}
+
+.code-section {
+  margin: 15px 0;
+}
+
+.code-block {
+  position: relative;
+  background: #1e1e1e;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  color: #d4d4d4;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* 削除: 古いcopy-buttonスタイル */
+
+.instructions {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.instructions ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.instructions li {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.next-button, .test-button, .complete-button {
+  background: linear-gradient(135deg, #4285f4, #3367d6);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.next-button:hover, .test-button:hover, .complete-button:hover {
+  background: linear-gradient(135deg, #3367d6, #2851a3);
+  transform: translateY(-2px);
+}
+
+.complete-button {
+  background: linear-gradient(135deg, #34a853, #2d8f44);
+}
+
+.complete-button:hover {
+  background: linear-gradient(135deg, #2d8f44, #26783a);
+}
+
+.test-section {
+  margin: 15px 0;
+}
+
+.test-result {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.test-result.success {
+  background: rgba(52, 168, 83, 0.2);
+  border: 1px solid rgba(52, 168, 83, 0.4);
+  color: #34a853;
+}
+
+.test-result.error {
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid rgba(244, 67, 54, 0.4);
+  color: #f44336;
+}
+
+/* Reroll Functionality Styles */
+.reroll-settings {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+}
+
+.reroll-settings h4 {
+  color: var(--gold-color);
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+.reroll-controls {
+  margin: 15px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+}
+
+.reroll-controls h4 {
+  color: var(--gold-color);
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.reroll-controls p {
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.reroll-button, .full-reroll-button {
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  color: var(--text-light);
+  border: 1px solid var(--gold-color);
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  margin: 5px 10px 5px 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.reroll-button:hover, .full-reroll-button:hover {
+  background: linear-gradient(135deg, var(--gold-color), var(--accent-color));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.reroll-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.full-reroll-button {
+  background: linear-gradient(135deg, var(--danger-color), #a91c2b);
+}
+
+.full-reroll-button:hover {
+  background: linear-gradient(135deg, #e02447, var(--danger-color));
+}
+
+.player-info.preserved {
+  background: linear-gradient(135deg, rgba(10, 158, 78, 0.2), rgba(8, 128, 63, 0.2));
+  border: 2px solid var(--success-color);
+}
+
+.player-info.rerollable {
+  background: linear-gradient(135deg, rgba(240, 173, 78, 0.2), rgba(200, 155, 60, 0.2));
+  border: 2px solid var(--warning-color);
+}
+
+.player-info.preserved:hover, .player-info.rerollable:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.preserve-indicator {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: var(--success-color);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.sub-account-warning {
+  color: var(--warning-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.reroll-message {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(200, 155, 60, 0.2);
+  border: 1px solid var(--gold-color);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Discord Export Styles */
+.discord-export {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(88, 101, 242, 0.1);
+  border: 1px solid rgba(88, 101, 242, 0.3);
+  border-radius: var(--border-radius);
+}
+
+.discord-export h4 {
+  color: #5865f2;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.discord-export h4::before {
+  content: "💬";
+  font-size: 1.1rem;
+}
+
+.export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.copy-button, .download-button, .preview-toggle {
+  background: linear-gradient(135deg, #5865f2, #4752c4);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.copy-button:hover, .download-button:hover, .preview-toggle:hover {
+  background: linear-gradient(135deg, #4752c4, #3c45a3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+}
+
+.copy-button:disabled, .download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.copy-button.success {
+  background: linear-gradient(135deg, var(--success-color), #0a7c3e);
+}
+
+.discord-preview {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.discord-preview h5 {
+  color: var(--gold-color);
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.preview-copy-button {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.preview-copy-button:hover {
+  background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 191, 0.3);
+}
+
+.preview-copy-button:disabled {
+  background: #444;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.preview-copy-button.success {
+  background: linear-gradient(135deg, var(--success-color), #0a7c3e);
+}
+
+.preview-content {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #2f3136;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.preview-content pre {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #dcddde;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.export-info {
+  margin-top: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  border: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+.info-text {
+  margin: 0 0 6px 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  opacity: 0.9;
+}
+
+.info-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Discord Preview Scrollbar */
+.preview-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+  background: rgba(88, 101, 242, 0.6);
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(88, 101, 242, 0.8);
+}
+
+/* Mobile Responsiveness for Discord Export */
+@media (max-width: 768px) {
+  .export-actions {
+    flex-direction: column;
+  }
+  
+  .copy-button, .download-button, .preview-toggle {
+    justify-content: center;
+  }
+  
+  .preview-content {
+    max-height: 200px;
+  }
+  
+  .preview-content pre {
+    font-size: 0.8rem;
+  }
+}
