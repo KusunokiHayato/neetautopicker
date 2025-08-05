@@ -4,7 +4,7 @@
  */
 
 // ===== 設定 =====
-const SPREADSHEET_ID = '1deYG1StxgX0E2fyNB-8Tmg8D_bavB8QaXa8cnx0b6iY';
+const SPREADSHEET_ID = '1KuDZFcgy97hOeVbQMe7PLgYig6IDRp24XCWeYcVZUTg';
 
 /**
  * Web App のメインエントリーポイント
