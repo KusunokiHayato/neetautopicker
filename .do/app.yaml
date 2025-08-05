@@ -6,7 +6,7 @@ services:
     repo: Slum-Dev/neetautopicker
     branch: main
     deploy_on_push: true
-  run_command: npm start
+  run_command: bash start.sh
   build_command: npm run build:do
   environment_slug: node-js
   instance_count: 1
