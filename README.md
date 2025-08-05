@@ -1,4 +1,6 @@
-# LoL Team Composition Automation System
+# neetautopicker
+
+NEET向け自動ピッカーシステム - League of Legends Team Composition Automation System
 
 League of Legends（LoL）のチーム編成を自動化するReact TypeScriptアプリケーションです。Google Sheetsからプレイヤーデータを取得し、指定された条件に基づいて最適なチーム編成を生成します。
 
@@ -175,3 +177,7 @@ export default tseslint.config([
   },
 ])
 ```
+
+## ライセンス
+
+MIT License
