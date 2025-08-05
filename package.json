@@ -12,7 +12,7 @@
     "build": "tsc -b && vite build",
     "build:pages": "tsc -b && vite build --base=/neetautopicker/",
     "build:do": "tsc -b && vite build",
-    "start": "serve dist -p 3000 -s",
+    "start": "serve dist -p ${PORT:-3000} -s",
     "start:preview": "vite preview --port 3000 --host 0.0.0.0",
     "postinstall": "echo 'Dependencies installed successfully'",
     "lint": "eslint .",
