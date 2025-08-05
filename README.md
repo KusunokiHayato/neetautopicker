@@ -1,31 +1,36 @@
-# React + TypeScript + Vite
+# LoL Team Composition Automation System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+League of Legends（LoL）のチーム編成を自動化するReact TypeScriptアプリケーションです。Google Sheetsからプレイヤーデータを取得し、指定された条件に基づいて最適なチーム編成を生成します。
 
-Currently, two official plugins are available:
+## 🚀 主な機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-# League of Legends チーム編成システム
-
-League of Legends（LoL）のチーム編成を自動化するReactアプリケーションです。
-
-## 主な機能
-
-### 1. レーン別チーム編成
+### 1. 自動チーム編成
 - 各レーン（Top, Jungle, Mid, ADC, Support）ごとに1人ずつ自動選出
-- プレイヤーのレーン適性を考慮した配置
+- プレイヤーのレーン適性とランクを考慮した配置
+- 完全ランダム選出による公平性の確保
 
-### 2. ランクフィルタリング
-- 各レーンごとに最小・最大ランクを指定可能
-- サポートランク：Iron, Bronze, Silver, Gold, Platinum, Diamond, Master, Grandmaster, Challenger
+### 2. 高度なフィルタリング
+- **ランクフィルタリング**: 各レーンごとに最小・最大ランクを指定可能
+- **サモナーレベルフィルタリング**: 各レーンの最小・最大レベルを設定
+- **時間ベースフィルタリング**: 指定時間内に登録されたプレイヤーのみ選出
+- **サブ垢疑惑フィルタリング**: 疑わしいアカウントを除外
 
-### 3. 時間ベースフィルタリング
-- 指定した時間以内に追加されたプレイヤーのみを選定対象にする機能
-- プレイヤーの最終アクティビティ時間による絞り込み
+### 3. リロール機能
+- **全レーンリロール**: 全体的なチーム再編成
+- **選択レーンリロール**: 保持したいプレイヤーを指定して部分的に再編成
+- **個別レーンリロール**: 各レーンに設置されたボタンで即座に単一レーン再抽選
 
-## 使用技術
+### 4. Google Sheets連携
+- Google Apps Script（GAS）を通じてスプレッドシートからプレイヤーデータを取得
+- リアルタイムデータ同期
+- 自動データ検証と変換
+
+### 5. Discord統合
+- 生成されたチーム編成をDiscord形式で出力
+- クリップボードへの直接コピー機能
+- プレビュー表示で内容確認
+
+## 🛠️ 技術スタック
 
 - **React 18** - UIフレームワーク
 - **TypeScript** - 型安全性
